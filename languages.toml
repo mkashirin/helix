@@ -1,8 +1,13 @@
 [[language]]
 name = "python"
 indent = { tab-width = 4, unit = "t" }
-language-servers = [ "pyright" ]
-formatter = { command = "black" , args = ["--line-length", "79", "--quiet", "-"] }
+language-servers = ["pyright"]
+formatter = { command = "black", args = [
+  "--line-length",
+  "79",
+  "--quiet",
+  "-",
+] }
 auto-format = true
 
 [language-server.pyright.config.python.analysis]
@@ -11,21 +16,21 @@ typeCheckingMode = "basic"
 [[language]]
 name = "zig"
 auto-format = true
-language-servers = [ "zls" ]
+language-servers = ["zls"]
 indent = { tab-width = 4, unit = "t" }
-formatter = { command = "zig" , args = ["fmt", "--stdin"] }
+formatter = { command = "zig", args = ["fmt", "--stdin"] }
 
 [[language]]
 name = "c"
-language-servers = [ "clangd" ]
+language-servers = ["clangd"]
 indent = { tab-width = 4, unit = "t" }
 auto-format = true
-formatter = { command = "clang-format", args = [ "-style=file" ] }
+formatter = { command = "clang-format", args = ["-style=file"] }
 
 [[language]]
 name = "rust"
 auto-format = true
-language-servers = [ "rust-analyzer" ]
+language-servers = ["rust-analyzer"]
 indent = { tab-width = 4, unit = "t" }
 formatter = { command = "rustfmt", args = ["--config", "max_width=80"] }
 
@@ -33,22 +38,10 @@ formatter = { command = "rustfmt", args = ["--config", "max_width=80"] }
 command = "rust-analyzer"
 [language-server.rust-analyzer.config.check]
 command = "clippy"
-# [language-server.rust-analyzer.config]
-# inlayHints.bindingModeHints.enable = false
-# inlayHints.closingBraceHints.minLines = 10
-# inlayHints.closureReturnTypeHints.enable = "with_block"
-# inlayHints.discriminantHints.enable = "fieldless"
-# inlayHints.lifetimeElisionHints.enable = "skip_trivial"
-# inlayHints.typeHints.hideClosureInitialization = false
-# procMacro.ignored.leptos_macro = ["component", "server"]
-# [language-server.rust-analyzer.cargo]
-# features = ["ssr"]
-# [rustfmt] 
-# overrideCommand = ["leptosfmt", "--stdin", "--rustfmt"]
 
 [[language]]
 name = "ocaml"
-language-servers = [ "ocamllsp" ]
+language-servers = ["ocamllsp"]
 indent = { tab-width = 4, unit = "t" }
 formatter = { command = "ocamlformat", args = [
   "-",
@@ -58,10 +51,14 @@ formatter = { command = "ocamlformat", args = [
 
 [[language]]
 name = "ocaml-interface"
-language-servers = [ "ocamllsp" ]
+language-servers = ["ocamllsp"]
 indent = { tab-width = 4, unit = "t" }
 
 [[language]]
 name = "typst"
 language-servers = ["tinymist", "typst-lsp"]
 indent = { tab-width = 4, unit = "t" }
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
